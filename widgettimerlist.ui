@@ -1,0 +1,23 @@
+<UI version="4.0" >
+ <class>WidgetTimerList</class>
+ <widget class="QWidget" name="WidgetTimerList" >
+  <property name="objectName" >
+   <string notr="true">WidgetTimerList</string>
+  </property>
+  <property name="geometry" >
+   <rect>
+	<x>0</x>
+	<y>0</y>
+	<width>400</width>
+	<height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>WidgetTimerList</string>
+  </property>  
+ </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</UI>

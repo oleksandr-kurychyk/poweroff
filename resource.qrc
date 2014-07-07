@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="hibernate.png">pics/hibernate.png</file>
+        <file alias="lock.png">pics/lock.png</file>
+        <file alias="logout.png">pics/logout.png</file>
+        <file alias="network_message.png">pics/network_message.png</file>
+        <file alias="remote_po.png">pics/remote_po.png</file>
+        <file alias="restart.png">pics/restart.png</file>
+        <file alias="shutdown.png">pics/shutdown.png</file>
+        <file alias="standby.png">pics/standby.png</file>
+        <file alias="tray_icon.png">pics/tray_icon.png</file>
+    </qresource>
+</RCC>
