@@ -8,18 +8,18 @@ MainWindow::MainWindow(QWidget *parent)
 	
     main_menu = this->menuBar();
     this->file_menu = new QMenu(tr("Файл"));
-    this->about_menu = new QMenu(tr("About"));
+    this->about_menu = new QMenu(tr("Про"));
     main_menu->addMenu(file_menu);
     main_menu->addMenu(about_menu);
-    this->action_comands = new QAction("Comands",this);
-    this->action_exit = new QAction("Exit",this);
-    this->action_about = new QAction("About",this);
+    this->action_comands = new QAction("Команди",this);
+    this->action_exit = new QAction("Виход",this);
+    this->action_about = new QAction("Про",this);
     file_menu->addAction(action_comands);
      file_menu->addAction(action_exit);
     about_menu->addAction(action_about);
     tray_icon  = new QSystemTrayIcon(QIcon(":/tray_icon.png"),this);
     action_show_hide =new QAction("Свернуть",this);
-    tray_menu = new QMenu("Menu");
+    tray_menu = new QMenu("Меню");
     tray_menu->addAction(action_show_hide);
     tray_menu->addAction(action_exit);
 
@@ -79,7 +79,7 @@ void MainWindow::on_action_exit()
 void MainWindow::on_action_about()
 {
 
-   QMessageBox::about(this,"PowerOff","This program been created Kurylchyk Olesandr ");
+   QMessageBox::about(this,"PowerOff","Програму создал Курильчик Олександр\nemail:oleksandr.kurylchyk@gmail.com  ");
 }
  void MainWindow::on_action_show_hide()
  {

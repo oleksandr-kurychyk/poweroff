@@ -39,12 +39,12 @@ WidgetNetworkTimer::~WidgetNetworkTimer()
 void WidgetNetworkTimer::InitUI()
 {
     this->layout_1 = new QGridLayout();
-    this->groupbox = new QGroupBox(tr("Internet timer"));
+    this->groupbox = new QGroupBox(tr("Сетевой таймер"));
     this->layout_2 = new QGridLayout();
 
 
     this->checkbox_get_inf = new QCheckBox("Получить статистику активного соединения");
-    this->button_update = new QPushButton("Updade");
+    this->button_update = new QPushButton("Обновить");
     ////
      QHBoxLayout * hblayout_1 = new QHBoxLayout();
     hblayout_1->addWidget(checkbox_get_inf);
@@ -56,19 +56,19 @@ void WidgetNetworkTimer::InitUI()
         this->arrlabel_net_inf[i] = new QLabel(QString("%0").arg(i));
         this->layout_2->addWidget(arrlabel_net_inf[i],(i/2)+2,i%2);
     }
-    arrlabel_net_inf[0]->setText(tr("Net addr"));
-    arrlabel_net_inf[2]->setText(tr("Phisical addr"));
-    arrlabel_net_inf[4]->setText(tr("Input trafic"));
-    arrlabel_net_inf[6]->setText(tr("Input speed"));
-    arrlabel_net_inf[8]->setText(tr("Output trafic"));
-    arrlabel_net_inf[10]->setText(tr("Output speed"));
+    arrlabel_net_inf[0]->setText(tr("IP адреса"));
+    arrlabel_net_inf[2]->setText(tr("МАС адрес"));
+    arrlabel_net_inf[4]->setText(tr("Входящий трафик"));
+    arrlabel_net_inf[6]->setText(tr("Входяща скорость"));
+    arrlabel_net_inf[8]->setText(tr("Исходящий  трафик"));
+    arrlabel_net_inf[10]->setText(tr("Исходяща скорость"));
     this->label_1 = new QLabel(tr("       "));
     this->label_2 = new QLabel(tr("Учитивать скорость в течении"));
     this->label_3 = new QLabel();
     this->line = new QFrame();
     this->line->setLineWidth(2);
     this->line->setFrameShape(QFrame::HLine);
-    this->checkbox_count  = new QCheckBox(tr("uchitivat"));
+    this->checkbox_count  = new QCheckBox(tr("Учитивать"));
     this->combo_net_count = new QComboBox();
     this->combo_net_count->addItem(tr("Скорость входящого трафика"));
     this->combo_net_count->addItem(tr("Скорость исходящого трафика"));

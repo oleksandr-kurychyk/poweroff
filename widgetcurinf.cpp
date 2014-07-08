@@ -21,7 +21,7 @@ void WidgetCurInf::InitUI()
 {
 	this->layout_1 = new QGridLayout();
 	this->setLayout(layout_1);
-	this->groupInf = new QGroupBox(tr("Information"));
+    this->groupInf = new QGroupBox(tr("Информация"));
     groupInf->setStyleSheet( "QGroupBox { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E0E0E0, stop: 1 #FFFFFF);"
                              "border: 2px solid gray;border-radius: 5px;margin-top: 1ex;}   "
                          "QGroupBox::title {subcontrol-origin: margin;subcontrol-position: top left; padding: 0 3px;"
@@ -31,15 +31,15 @@ void WidgetCurInf::InitUI()
 	this->layout_2 = new QGridLayout();
 	this->groupInf->setLayout(layout_2);
 	///create label
-	this->labelCurentTime = new QLabel(tr("Curent Time"));
+    this->labelCurentTime = new QLabel(tr("Время"));
 	this->labelCurentTimeData = new QLabel();
-	this->labelCurentDate = new QLabel(tr("Curent Date"));
+    this->labelCurentDate = new QLabel(tr("Дата"));
 	this->labelCurentDateData = new QLabel();
-	this->labelCurentDay = new QLabel(tr("Curent Day"));
+    this->labelCurentDay = new QLabel(tr("Деннь"));
 	this->labelCurentDayData = new QLabel();
-	this->labelTimer = new QLabel(tr("Timer"));
+    this->labelTimer = new QLabel(tr("  "));
 	this->labelTimerData = new QLabel();
-	this->labelUser = new QLabel(tr("User"));
+    this->labelUser = new QLabel(tr("Пользователь"));
 	this->labelUserData = new QLabel(QString("null"));
 	
 	//////////////////////////

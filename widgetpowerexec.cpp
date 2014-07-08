@@ -13,7 +13,7 @@ void WidgetPowerExec::InitUI()
 	this->buton_exec = new QPushButton();
 	this->buton_exec->setMinimumSize (60,60);
     buton_exec->setIconSize(QSize(50,50));
-	this->groupbox_item = new QGroupBox("menu");
+    this->groupbox_item = new QGroupBox("Команди");
     this->groupbox_item->setStyleSheet( "QGroupBox { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E0E0E0, stop: 1 #FFFFFF);"
                                         "border: 2px solid gray;border-radius: 5px;margin-top: 1ex;}   "
                                     "QGroupBox::title {subcontrol-origin: margin;subcontrol-position: top center; padding: 0 3px;"

@@ -40,12 +40,12 @@ void WidgetTimerCpu::InitUI()
 {
 	this->layout_1 = new QGridLayout();
 	this->layout_2 = new QGridLayout();
-	this->groupbox = new QGroupBox();
+    this->groupbox = new QGroupBox("CPU таймер");
     this->groupbox->setStyleSheet( "QGroupBox { background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E0E0E0, stop: 1 #FFFFFF);"
                                    "border: 2px solid gray;border-radius: 5px;margin-top: 1ex;}   "
                                "QGroupBox::title {subcontrol-origin: margin;subcontrol-position: top center; padding: 0 3px;"
                                    "background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #E0E0E0, stop: 1 #FFFFFF); }");
-	this->labelTimeCapacity = new QLabel(tr("Time CPU load"));
+    this->labelTimeCapacity = new QLabel(tr("Время загрузки СРU"));
 	this->labelTimeCpuInf = new QLabel();
 	this->labelTimeCpuInf->setVisible(0);
 	this->spinbox = new QSpinBox();
@@ -54,7 +54,7 @@ void WidgetTimerCpu::InitUI()
 	this->teCpu = new QTimeEdit();
     teCpu->setDisplayFormat("hh:mm:ss");
 	this->teCpu->setMinimumTime(QTime(0,0,3)); 
-	this->checkboxCpu = new QCheckBox(tr("Minimum CPU"));
+    this->checkboxCpu = new QCheckBox(tr("Минимальна загрузка CPU"));
 	this->checkboxCpu->setCheckState(Qt::Unchecked);
 	this->progbar = new QProgressBar();
 	this->progbar->setMaximum(100);
@@ -145,7 +145,7 @@ void WidgetTimerCpu::slotRadioCheck(int state)
 }
 void WidgetTimerCpu::slotTimerCpuCounter()
 {
-	if(cpu<spinbox->value())
+    if(cpu>spinbox->value())
 	{
 		this->time_counter--;
 		if(time_counter ==0)
@@ -155,12 +155,14 @@ void WidgetTimerCpu::slotTimerCpuCounter()
 		}
 		
 	}
-	else if(cpu>spinbox->value())
+    else if(cpu<spinbox->value())
 	{
 	this->time_counter = (teCpu->time().hour()*3600)+(teCpu->time().minute()*60)+teCpu->time().second();
 
 	}
-	this->labelTimeCpuInf->setText(QString(tr("Start over %1:%2:%3").arg(time_counter/3600).arg((time_counter/60)%60).arg(time_counter%60)));
+    QTime tmp_time(time_counter/3600,(time_counter/60)%24,time_counter%60);
+
+    this->labelTimeCpuInf->setText(tmp_time.toString("hh:mm:ss"));
 	
 
 }
