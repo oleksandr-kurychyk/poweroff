@@ -49,3 +49,19 @@ void ComandsDialog::on_pushButton_clicked()
     this->close();
     this->setResult(0);
 }
+
+void ComandsDialog::on_pushButton_default_clicked()
+{
+    ui->lineEdit_sd->setText("dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop");
+    ui->lineEdit_rb->setText("dbus-send --system --print-reply --dest=\"org.freedesktop.ConsoleKit\" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart");
+    ui->lineEdit_hib->setText("dbus-send --system --print-reply --dest=\"org.freedesktop.UPower\" /org/freedesktop/UPower org.freedesktop.UPower.Hibernate");
+    ui->lineEdit_sb->setText("dbus-send --system --print-reply --dest=\"org.freedesktop.UPower\" /org/freedesktop/UPower org.freedesktop.UPower.Suspend");
+    ui->lineEdit_lo->setText("");
+    ui->lineEdit_lock->setText("");
+    ui->lineEdit_nm->setText("");
+    ui->lineEdit_rpo->setText("");
+
+
+
+
+}

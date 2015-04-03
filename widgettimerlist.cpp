@@ -54,8 +54,9 @@ void WidgetTimerList::initUI()
     this->teTimeOp->setDisplayFormat("hh:mm:ss");
 
 	this->deDate = new QDateEdit();
+    this->deDate->setMinimumDate(QDate::currentDate());
 	this->teCountdown = new QTimeEdit();
-	this->teCountdown->setMinimumTime(QTime(0,0,3));
+    this->teCountdown->setMinimumTime(QTime(0,0,10));
     this->teCountdown->setDisplayFormat("hh:mm:ss");
 ;
 
@@ -151,7 +152,7 @@ void WidgetTimerList::slotTOTimer_one()
 		{
 			this->checkTimeOp->setChecked(0);
 			emit execTimer("countdown","countdown",0);
-			QMessageBox::information(this,"1","1");
+
 			return;
 		}
 
@@ -164,7 +165,7 @@ void WidgetTimerList::slotTOTimer_one()
 
 			this->checkTimeOp->setChecked(0);
 			emit execTimer("countdown","countdown",0);
-			QMessageBox::information(this,"2","2");
+
 			return;
 		}
 

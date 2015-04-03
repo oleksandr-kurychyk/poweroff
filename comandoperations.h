@@ -2,13 +2,6 @@
 #define COMANDOPERATIONS_H
 #include <QtCore>
 
-
-
-
-
-
-
-
 class ComandOperations
 {
 private:

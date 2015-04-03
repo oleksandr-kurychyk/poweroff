@@ -54,7 +54,8 @@ void WidgetTimerCpu::InitUI()
 	this->teCpu = new QTimeEdit();
     teCpu->setDisplayFormat("hh:mm:ss");
 	this->teCpu->setMinimumTime(QTime(0,0,3)); 
-    this->checkboxCpu = new QCheckBox(tr("Минимальна загрузка CPU"));
+    teCpu->setTime(QTime(0,20,0));
+    this->checkboxCpu = new QCheckBox(tr("Максимальна загрузка CPU"));
 	this->checkboxCpu->setCheckState(Qt::Unchecked);
 	this->progbar = new QProgressBar();
 	this->progbar->setMaximum(100);
@@ -145,7 +146,7 @@ void WidgetTimerCpu::slotRadioCheck(int state)
 }
 void WidgetTimerCpu::slotTimerCpuCounter()
 {
-    if(cpu>spinbox->value())
+    if(cpu<spinbox->value())
 	{
 		this->time_counter--;
 		if(time_counter ==0)
@@ -155,12 +156,12 @@ void WidgetTimerCpu::slotTimerCpuCounter()
 		}
 		
 	}
-    else if(cpu<spinbox->value())
+    else if(cpu>spinbox->value())
 	{
 	this->time_counter = (teCpu->time().hour()*3600)+(teCpu->time().minute()*60)+teCpu->time().second();
 
 	}
-    QTime tmp_time(time_counter/3600,(time_counter/60)%24,time_counter%60);
+    QTime tmp_time(0,0,0);tmp_time= tmp_time.addSecs(time_counter);
 
     this->labelTimeCpuInf->setText(tmp_time.toString("hh:mm:ss"));
 	
@@ -168,7 +169,8 @@ void WidgetTimerCpu::slotTimerCpuCounter()
 }
 void WidgetTimerCpu::slotTeTimeChanged(QTime time)
 {
-	this->time_counter = (time.hour()*3600)+(time.minute()*60)+time.second();
+    this->time_counter = (teCpu->time().hour()*3600)+(teCpu->time().minute()*60)+teCpu->time().second();
+
 }
 QList<float> readCpuStats()
 {

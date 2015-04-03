@@ -33,7 +33,7 @@ void WidgetPowerExec::InitUI()
 	this->radiobutton_hibernation = new QRadioButton(tr("Hibernate"));
 	this->radiobutton_standby = new QRadioButton(tr("Standby"));
 	this->radiobutton_nm = new QRadioButton(tr("Network message"));
-	this->radiobutton_rpo = new QRadioButton(tr("Remote Power Off"));
+    this->radiobutton_rpo = new QRadioButton(tr("Execute comand"));
 	//radiobuttons insert into layout
 	this->gridlayout_1->addWidget(radiobutton_shutdown ,1,1);		
 	this->gridlayout_1->addWidget(radiobutton_restart,2,1);

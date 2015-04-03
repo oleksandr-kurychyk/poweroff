@@ -84,6 +84,7 @@ void WidgetNetworkTimer::InitUI()
     combo_net_power->addItem("Gb");
     this->te_count = new QTimeEdit();
     te_count->setMinimumTime(QTime(0,0,3));
+    te_count->setTime(QTime(0,20,0));
     te_count->setDisplayFormat("hh:mm:ss");
     this->setLayout(layout_1);
     this->layout_1->addWidget(groupbox);
@@ -132,8 +133,9 @@ void WidgetNetworkTimer::TimerNetExec()
 void WidgetNetworkTimer::slot_button_update_click()
 {
     UpdateNIList();
-    checkbox_count->stateChanged(0);;
-    checkbox_count->setEnabled(0);
+    checkbox_count->setChecked(0);
+    StopCountTraffic();
+    SetEnableWidgetNetCount(0);
 }
 
 QString WidgetNetworkTimer::transFormNetUnit(int value)
@@ -246,6 +248,7 @@ void WidgetNetworkTimer::StartCountTraffic()
     current_count_time_limit = tmp_time.hour()*3600+tmp_time.minute()*60+tmp_time.second();
     current_count_time = 0;
     this->te_count-> setEnabled(1);
+    label_2-> setEnabled(1);
     switch( combo_net_count->currentIndex() )
     {
     case 0:
@@ -263,18 +266,22 @@ void WidgetNetworkTimer::StartCountTraffic()
     {
         p_Count_func = &WidgetNetworkTimer::CountInputVolumeTraffic;
         this->te_count-> setEnabled(0);
+        label_2-> setEnabled(0);
+
     }
         break;
     case 3:
     {
         p_Count_func = &WidgetNetworkTimer::CountOutputVolumeTraffic;
         this->te_count-> setEnabled(0);
+        label_2-> setEnabled(0);
     }
         break;
     case 4:
     {
         p_Count_func = &WidgetNetworkTimer::CountSummaryVolumeTraffic;
         this->te_count-> setEnabled(0);
+        label_2-> setEnabled(0);
 
     }
         break;
@@ -344,7 +351,7 @@ void WidgetNetworkTimer::CountOutputVolumeTraffic()
 }
 void WidgetNetworkTimer::CountInputSpeedTraffic()
 {
-    if(current_count_limit<=net_speed_down)
+    if(current_count_limit>=net_speed_down)
         current_count_time++;
     else
     {
@@ -360,7 +367,7 @@ void WidgetNetworkTimer::CountInputSpeedTraffic()
 }
 void WidgetNetworkTimer::CountOutputSpeedTraffic()
 {
-    if(current_count_limit<=net_speed_up)
+    if(current_count_limit>=net_speed_up)
         current_count_time++;
     else
     {

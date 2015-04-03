@@ -21,6 +21,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_pushButton_default_clicked();
+
 private:
     Ui::ComandsDialog *ui;
 };

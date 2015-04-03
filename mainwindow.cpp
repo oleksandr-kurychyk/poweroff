@@ -57,8 +57,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer_list,&WidgetTimerList::execTimer,power_exec,&WidgetPowerExec::ExecTimer);
     connect(net_timer,&WidgetNetworkTimer::execTimer,power_exec,&WidgetPowerExec::ExecTimer);
 
-
-
+this->setFixedSize(800,500);
 
 
 }
@@ -79,7 +78,7 @@ void MainWindow::on_action_exit()
 void MainWindow::on_action_about()
 {
 
-   QMessageBox::about(this,"PowerOff","Програму создал Курильчик Олександр\nemail:oleksandr.kurylchyk@gmail.com  ");
+   QMessageBox::about(this,"PowerOff","<h3>Програма PowerOff для Linux</h3><br/>Програму создал Курильчик Олександр\nemail:oleksandr.kurylchyk@gmail.com  ");
 }
  void MainWindow::on_action_show_hide()
  {
